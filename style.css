@@ -104,3 +104,29 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+
+/* === Mobile Responsive === */
+
+@media screen and (max-width: 480px) {
+  .system-box {
+    padding: 16px;
+    max-width: 95vw;
+  }
+
+  input, select, button {
+    font-size: 15px;
+  }
+
+  h1, h2, h3 {
+    font-size: 20px;
+  }
+
+  .popup {
+    top: 5%;
+    padding: 15px;
+    font-size: 15px;
+    width: 90%;
+  }
+}
+
