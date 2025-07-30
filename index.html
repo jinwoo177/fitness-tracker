@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness System</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+
+  <!-- Start Interface -->
+  <div class="container" id="startScreen">
+    <div class="system-box">
+      <h1>🏋️ Fitness Leveling System</h1>
+
+      <div class="form-group">
+        <label for="username">Name:</label>
+        <input type="text" id="username" placeholder="Enter Your Name Player" />
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Your age" inputmode="numeric" oninput="updateAgeLabel()" />
+        <p><strong>Age Group:</strong> <span id="ageType">-</span></p>
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" placeholder="Your weight in kg" inputmode="numeric" />
+      </div>
+
+      <button onclick="startTraining()">Start Training</button>
+      <button onclick="showInstructions()">📖 Instructions</button>
+      <button onclick="showAbout()">ℹ️ About Us</button>
+    </div>
+  </div>
+
+  <!-- Training Interface -->
+  <div class="container" id="systemScreen" style="display: none;">
+    <div class="system-box">
+      <h2>Welcome, <span id="nameDisplay"></span></h2>
+      <p><strong>Level:</strong> <span id="level">1</span> / 200</p>
+      <p><strong>Rank:</strong> <span id="rankTitle">Beginner</span></p>
+
+      <div class="timer-box">
+        <h3>Stopwatch</h3>
+        <p><span id="timer">00:00</span></p>
+        <button onclick="startTimer()">▶ Start</button>
+        <button onclick="stopTimer()">⏸ Stop</button>
+        <button onclick="resetTimer()">🔄 Reset</button>
+      </div>
+
+      <div class="quest-box">
+        <h3>Quests:</h3>
+        <ul id="questList"></ul>
+        <button id="completeBtn" onclick="completeQuests()" disabled>✅ Complete Quest</button>
+      </div>
+
+      <button onclick="resetAll()">❌ Stop Training</button>
+    </div>
+  </div>
+
+  <!-- Level Popup -->
+  <div id="levelPopup" class="popup">
+    <h3>🎉 LEVEL UP!</h3>
+    <p>You are now <strong>Level <span id="popupLevel">1</span></strong></p>
+    <p>Rank: <strong><span id="popupRank">Beginner</span></strong></p>
+  </div>
+
+  <!-- Instructions Popup -->
+  <div id="instructionPopup" class="popup" style="display:none;">
+    <h3>📖 Instructions</h3>
+    <p>✔️ Enter your name, age, weight and gender.</p>
+    <p>✔️ Start training to begin your fitness journey.</p>
+    <p>✔️ You must start the timer to unlock quest completion.</p>
+    <p>✔️ Quests vary by age and gender. Level up to unlock harder training.</p>
+    <button onclick="closeInstructions()">Close</button>
+  </div>
+
+  <!-- About Us -->
+  <div id="aboutPopup" class="popup" style="display:none;">
+    <h3>💪 About Us</h3>
+    <p>This system is designed to help you improve your fitness with fun quests based on your age, gender, and level.</p>
+    <p>Inspired by Solo Leveling and anime-style progression — train hard, level up, and become stronger!</p>
+    <button onclick="closeAbout()">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
