@@ -24,6 +24,7 @@ function startTimer() {
   if (isTimerRunning) return;
   isTimerRunning = true;
   document.getElementById("completeBtn").disabled = false;
+
   timerInterval = setInterval(() => {
     seconds++;
     document.getElementById("timer").textContent = formatTime(seconds);
@@ -53,15 +54,8 @@ function generateQuests() {
   const gender = document.getElementById('gender').value;
 
   let questPool = [];
-  let intensity = "";
-
-  if (!gender || isNaN(age)) {
-    alert("Please select gender and valid age.");
-    return;
-  }
 
   if (age < 13) {
-    intensity = "Light";
     questPool = ["10 Arm Circles", "5 Wall Push-ups", "15 Jumping Jacks", "Walk 2x", "Breathing Exercise 1 min"];
   } else if (age <= 17) {
     questPool = gender === "male" ?
@@ -92,6 +86,7 @@ function completeQuests() {
   resetTimer();
   level++;
   document.getElementById("level").textContent = level;
+
   const rank = getRank(level);
   document.getElementById("rankTitle").textContent = rank;
   showLevelPopup(level, rank);
@@ -134,7 +129,6 @@ function updateAgeLabel() {
 function showInstructions() {
   document.getElementById("instructionPopup").style.display = "block";
 }
-
 function closeInstructions() {
   document.getElementById("instructionPopup").style.display = "none";
 }
@@ -142,9 +136,15 @@ function closeInstructions() {
 function showAbout() {
   document.getElementById("aboutPopup").style.display = "block";
 }
-
 function closeAbout() {
   document.getElementById("aboutPopup").style.display = "none";
+}
+
+function showRankGuide() {
+  document.getElementById("rankGuidePopup").style.display = "block";
+}
+function closeRankGuide() {
+  document.getElementById("rankGuidePopup").style.display = "none";
 }
 
 function resetAll() {
