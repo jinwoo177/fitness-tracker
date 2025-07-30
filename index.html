@@ -5,47 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fitness System</title>
   <link rel="stylesheet" href="style.css" />
-  
 </head>
 <body>
 
-  <!-- Start Interface -->
+  <!-- Start Screen -->
   <div class="container" id="startScreen">
     <div class="system-box">
       <h1>🏋️ Fitness Leveling System</h1>
 
-      <div class="form-group">
-        <label for="username">Name:</label>
-        <input type="text" id="username" placeholder="Enter Your Name Player" />
-      </div>
+      <label for="username">Name:</label>
+      <input type="text" id="username" placeholder="Enter Your Name Player" />
 
-      <div class="form-group">
-        <label for="gender">Gender:</label>
-        <select id="gender">
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
+      <label for="gender">Gender:</label>
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
 
-      <div class="form-group">
-        <label for="age">Age:</label>
-        <input type="number" id="age" placeholder="Your age" inputmode="numeric" oninput="updateAgeLabel()" />
-        <p><strong>Age Group:</strong> <span id="ageType">-</span></p>
-      </div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" placeholder="Your age" inputmode="numeric" oninput="updateAgeLabel()" />
+      <p><strong>Age Group:</strong> <span id="ageType">-</span></p>
 
-      <div class="form-group">
-        <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" placeholder="Your weight in kg" inputmode="numeric" />
-      </div>
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" placeholder="Your weight in kg" inputmode="numeric" />
 
       <button onclick="startTraining()">Start Training</button>
       <button onclick="showInstructions()">📖 Instructions</button>
       <button onclick="showAbout()">ℹ️ About Us</button>
+      <button onclick="showRankGuide()">📊 Rank Guide</button>
     </div>
   </div>
 
-  <!-- Training Interface -->
+  <!-- System Screen -->
   <div class="container" id="systemScreen" style="display: none;">
     <div class="system-box">
       <h2>Welcome, <span id="nameDisplay"></span></h2>
@@ -70,29 +62,41 @@
     </div>
   </div>
 
-  <!-- Level Popup -->
+  <!-- Popups -->
   <div id="levelPopup" class="popup">
     <h3>🎉 LEVEL UP!</h3>
     <p>You are now <strong>Level <span id="popupLevel">1</span></strong></p>
     <p>Rank: <strong><span id="popupRank">Beginner</span></strong></p>
   </div>
 
-  <!-- Instructions Popup -->
   <div id="instructionPopup" class="popup" style="display:none;">
     <h3>📖 Instructions</h3>
-    <p>✔️ Enter your name, age, weight and gender.</p>
-    <p>✔️ Start training to begin your fitness journey.</p>
-    <p>✔️ You must start the timer to unlock quest completion.</p>
-    <p>✔️ Quests vary by age and gender. Level up to unlock harder training.</p>
+    <p>✔️ Fill in all the fields and click Start Training.</p>
+    <p>✔️ Start the stopwatch to enable quest completion.</p>
+    <p>✔️ Complete the quests to level up and unlock new ranks.</p>
+    <p>✔️ Quests vary by age and gender.</p>
     <button onclick="closeInstructions()">Close</button>
   </div>
 
-  <!-- About Us -->
   <div id="aboutPopup" class="popup" style="display:none;">
     <h3>💪 About Us</h3>
-    <p>This system is designed to help you improve your fitness with fun quests based on your age, gender, and level.</p>
-    <p>Inspired by Solo Leveling and anime-style progression — train hard, level up, and become stronger!</p>
+    <p>This system helps you level up your body through real training quests inspired by RPG games.</p>
+    <p>Made by Arun Verma</p>
     <button onclick="closeAbout()">Close</button>
+  </div>
+
+  <div id="rankGuidePopup" class="popup" style="display:none;">
+    <h3>📊 Rank Guide</h3>
+    <ul style="text-align: left;">
+      <li><strong>Level 1–20:</strong> Beginner</li>
+      <li><strong>Level 21–40:</strong> Intermediate</li>
+      <li><strong>Level 41–60:</strong> Advanced</li>
+      <li><strong>Level 61–80:</strong> Expert</li>
+      <li><strong>Level 81–100:</strong> Master</li>
+      <li><strong>Level 101–150:</strong> Ultra</li>
+      <li><strong>Level 151–200:</strong> Ultra Instinct</li>
+    </ul>
+    <button onclick="closeRankGuide()">Close</button>
   </div>
 
   <script src="script.js"></script>
